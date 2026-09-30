@@ -24,6 +24,10 @@ def calculate():
         text=f"{value:.4f} {input_unit.get()} = {newton:.4f} N / {kgf:.4f} kgf",
         fg="black"
     )
+    history_list.insert(
+        tk.END,
+        f"{value:.4f} {input_unit.get()} = {newton:.4f} N / {kgf:.4f} kgf"
+    )
 
 def on_enter(event):
     calculate()
@@ -41,7 +45,7 @@ def clear_entry():
 # 메인 윈도우 생성
 root = tk.Tk()
 root.title("kN 변환 계산기")
-root.geometry("400x400")
+root.geometry("400x550")
 input_unit = tk.StringVar(value="kN")
 
 # 입력창
@@ -62,6 +66,12 @@ unit_menu.pack(side=tk.LEFT)
 # 결과 출력 라벨
 result_label = tk.Label(root, text="", font=("Arial", 12))
 result_label.pack(pady=10)
+
+# 변환 기록
+history_label = tk.Label(root, text="변환 기록")
+history_label.pack()
+history_list = tk.Listbox(root, width=48, height=6)
+history_list.pack(pady=5)
 
 # 넘버패드 프레임
 pad_frame = tk.Frame(root)
