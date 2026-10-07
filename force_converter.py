@@ -21,12 +21,12 @@ def calculate():
 
     newton, kgf = convert_kn(kn_value)
     result_label.config(
-        text=f"{value:.4f} {input_unit.get()} = {newton:.4f} N / {kgf:.4f} kgf",
+        text=f"{value:.4f} {input_unit.get()} = {newton:.4f} N , {kgf:.4f} kgf",
         fg="black"
     )
     history_list.insert(
         tk.END,
-        f"{value:.4f} {input_unit.get()} = {newton:.4f} N / {kgf:.4f} kgf"
+        f"{value:.4f} {input_unit.get()} = {newton:.4f} N , {kgf:.4f} kgf"
     )
 
 def on_enter(event):
